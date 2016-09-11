@@ -1,5 +1,6 @@
 package com.dudu0118.superrefreshlayout;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -108,6 +109,7 @@ public class LoadMoreListActivity extends AppCompatActivity {
 
             TextView view = new TextView(LoadMoreListActivity.this);
             view.setTextSize(28);
+            view.setTextColor(Color.BLACK);
             view.setText("item:" + getItem(position));
             return view;
         }
