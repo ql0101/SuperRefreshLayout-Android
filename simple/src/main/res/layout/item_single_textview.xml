@@ -10,5 +10,6 @@
         android:id="@+id/id_tv"
         android:layout_width="72dp"
         android:layout_height="match_parent"
+        android:textColor="#000"
         android:gravity="center" />
 </RelativeLayout>

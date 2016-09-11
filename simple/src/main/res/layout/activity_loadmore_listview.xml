@@ -17,7 +17,9 @@
         <ListView
             android:id="@+id/lv_load"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:scrollbars="none"/>
 
     </com.dudu0118.superrefreshlib.view.SuperRefreshLayout>
 

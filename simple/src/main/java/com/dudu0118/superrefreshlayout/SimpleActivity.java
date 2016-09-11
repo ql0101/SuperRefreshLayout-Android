@@ -51,7 +51,13 @@ public class SimpleActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onRefreshLoadMore(SuperRefreshLayout superRefreshLayout) {
+            public void onRefreshLoadMore(final SuperRefreshLayout superRefreshLayout) {
+                superRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        superRefreshLayout.finishLoadMore();
+                    }
+                },1000);
 
             }
         });
