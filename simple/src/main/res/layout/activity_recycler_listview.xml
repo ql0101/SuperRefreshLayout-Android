@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.dudu0118.superrefreshlib.view.SuperRefreshLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/id_superrefreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:show_type="material"
+        app:pull_endless="true"
+        app:overlay="false">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/id_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.dudu0118.superrefreshlib.view.SuperRefreshLayout>
+
+
+</RelativeLayout>

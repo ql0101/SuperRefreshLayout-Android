@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">superrefreshLib</string>
+
+    <integer-array name="material_colors">
+        <item>@color/material_red</item>
+        <item>@color/material_green</item>
+        <item>@color/material_blue</item>
+        <item>@color/material_yellow</item>
+    </integer-array>
+</resources>

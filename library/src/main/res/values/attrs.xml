@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SuperRefreshLayout">
+        <attr name="overlay" format="boolean"/>
+        <!-- 下拉刷新的样式,text是纯文字样式 -->
+        <attr name="show_type" format="enum">
+            <enum name="defstr" value="0"/>
+            <enum name="material" value="1"/>
+        </attr>
+        <!-- 一直下拉模式 -->
+        <attr name="pull_endless" format="boolean"/>
+
+    </declare-styleable>
+</resources>
