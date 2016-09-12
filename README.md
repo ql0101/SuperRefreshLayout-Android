@@ -38,24 +38,24 @@
   
 ###2.在代码中设置监听回调
 
-    ```java
-	SuperRefreshLayout.setRefreshListener(new SuperRefreshLayout.RefreshListener() {
-            @Override
-            public void onRefresh(final SuperRefreshLayout superRefreshLayout) {
-            	//这里写下拉刷新的代码...
+```java
+SuperRefreshLayout.setRefreshListener(new SuperRefreshLayout.RefreshListener() {
+     @Override
+    public void onRefresh(final SuperRefreshLayout superRefreshLayout) {
+        //这里写下拉刷新的代码...
 
-            	superRefreshLayout.finishRefresh();
-            }
+        superRefreshLayout.finishRefresh();
+    }
 
-            @Override
-            public void onRefreshLoadMore(final SuperRefreshLayout superRefreshLayout) {
-             	//这里写上拉加载的的代码...  
+    @Override
+    public void onRefreshLoadMore(final SuperRefreshLayout superRefreshLayout) {
+        //这里写上拉加载的的代码...  
 
-            	superRefreshLayout.finishLoadMore();
+        superRefreshLayout.finishLoadMore();
                
-            }
-        });
-    ```
+        }
+    });
+```
   
 就需要上述的两步，就能实现下拉刷新与上拉加载 是不是很简单！
 
@@ -63,55 +63,55 @@
 ###1.下拉沉浸式模式
 在xml中配置：
 
-    ```html
-	<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:overlay="true">
-    ```
+```xml
+<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:overlay="true">
+```
 
 在代码中配置：
 
-    ```java
-	SuperRefreshLayout.setIsOverLay(true);
-    ```
+```java
+SuperRefreshLayout.setIsOverLay(true);
+```
 
 ###2.下拉无限拉模式
 在xml中配置：
 
-  ```
-	<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:pull_endless="true">
-  ```
+```xml
+<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:pull_endless="true">
+```
 
 在代码中配置：
 
-    ```
-	SuperRefreshLayout.setIsOverLay(true);
-	```
+```java
+SuperRefreshLayout.setIsOverLay(true);
+```
 
 ###3.下拉样式选择
 
 在xml中配置：
 
-    ```
-	<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-		<!-- 目前支持3种样式 defstr（文字） material（官方） goo（粘性） -->
-        app:show_type="defstr">
-    ```
+```xml
+<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    <!-- 目前支持3种样式 defstr（文字） material（官方） goo（粘性） -->
+    app:show_type="defstr">
+```
 
 在代码中配置：
 
-    ```
-	SuperRefreshLayout.setHeadView(new TextHeadView(context));
-    ```
+```java
+SuperRefreshLayout.setHeadView(new TextHeadView(context));
+```
 
 ##高级进阶
 ###1.实现自定义下拉刷新头
@@ -120,38 +120,35 @@
 
 实现initView()与setPullState(int statePullRefresh)效果。前者是具体显示的刷新头部view后者是用来判断当前头部状态来分别显示不同的效果。
 
-    ```java
-	public class GooHeadView extends DefaultHeadView {
-
-	    private GooView gooView;
+```java
+public class GooHeadView extends DefaultHeadView {
+    private GooView gooView;
 	
-	    public GooHeadView(Context context) {
-	        super(context);
-	    }
-	
-	    @Override
-	    protected View initView() {
-	        View view = View.inflate(context, R.layout.item_gooview_refresh, null);
-	        gooView = (GooView) view.findViewById(R.id.gv_head);
-	        return view;
-	    }
-	
-	    @Override
-	    protected void setPullState(int statePullRefresh) {
-	
-	        switch (statePullRefresh) {
-	            case SuperRefreshLayout.STATE_PULL_REFRESH:
-	                gooView.removeCallbak();
-	
-	                break;
-	            case SuperRefreshLayout.STATE_REFRESHING:
-	                gooView.refresh();
-	                break;
-	        }
-	
-	    }
+    public GooHeadView(Context context) {
+        super(context);
 	}
-    ```
+	
+    @Override
+    protected View initView() {
+        View view = View.inflate(context, R.layout.item_gooview_refresh, null);
+        gooView = (GooView) view.findViewById(R.id.gv_head);
+        return view;
+    }
+	
+    @Override
+    protected void setPullState(int statePullRefresh) {
+        switch (statePullRefresh) {
+            case SuperRefreshLayout.STATE_PULL_REFRESH:
+                gooView.removeCallbak();
+	            break;
+	        case SuperRefreshLayout.STATE_REFRESHING:
+	            gooView.refresh();
+	            break;
+	    }
+	
+	}
+}
+```
 
 如果你需要知道当前下拉的百分比来实现更丰富的效果那么请实现updatePullOffset(float offset)方法。offset为当前下拉百分比，当使用无尽模式时百分比会大于1.0
 
