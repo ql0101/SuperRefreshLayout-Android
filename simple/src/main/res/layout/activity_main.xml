@@ -17,7 +17,7 @@
         android:layout_height="48dp"
         android:layout_margin="10dp"
         android:background="@color/material_blue"
-        android:text="下拉刷新简单示例" />
+        android:text="下拉上拉简单示例" />
 
     <Button
         android:id="@+id/bt_lm_lv"
@@ -25,7 +25,7 @@
         android:layout_height="48dp"
         android:layout_margin="10dp"
         android:background="@color/material_blue"
-        android:text="加载更多_Listview" />
+        android:text="粘性下拉_Listview" />
 
     <Button
         android:id="@+id/bt_lm_rv"
@@ -33,5 +33,5 @@
         android:layout_height="48dp"
         android:layout_margin="10dp"
         android:background="@color/material_blue"
-        android:text="加载更多_Recelview" />
+        android:text="官方下拉_瀑布流" />
 </LinearLayout>
