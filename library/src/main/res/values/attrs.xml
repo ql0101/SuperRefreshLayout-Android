@@ -6,9 +6,15 @@
         <attr name="show_type" format="enum">
             <enum name="defstr" value="0"/>
             <enum name="material" value="1"/>
+            <enum name="goo" value="2"/>
         </attr>
         <!-- 一直下拉模式 -->
         <attr name="pull_endless" format="boolean"/>
 
+    </declare-styleable>
+
+    <declare-styleable name="GooView">
+        <attr name="fill_color" format="color"/>
+        <attr name="progress_color" format="color"/>
     </declare-styleable>
 </resources>

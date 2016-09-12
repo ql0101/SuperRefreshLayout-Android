@@ -89,7 +89,7 @@ public class SuperRefreshLayout extends RelativeLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Log.i(Tag, "onAttachedToWindow");
+//        Log.i(Tag, "onAttachedToWindow");
 
         Context context = getContext();
 
@@ -101,6 +101,9 @@ public class SuperRefreshLayout extends RelativeLayout {
             case 1:
                 mHeadView = new MaterialHeaderView(context);
                 break;
+            case 2:
+                mHeadView = new GooHeadView(context);
+                break;
         }
 
         if (mChildView instanceof ListView) {
@@ -111,7 +114,7 @@ public class SuperRefreshLayout extends RelativeLayout {
                     if (scrollState == SCROLL_STATE_IDLE || scrollState == SCROLL_STATE_FLING) {
 
                         if (((ListView) mChildView).getLastVisiblePosition() == ((ListView) mChildView).getCount() - 1) {// 滑动到最后
-                            Log.e(Tag, "滑动到底部了...");
+//                            Log.e(Tag, "滑动到底部了...");
                             if(isLoadMore)
                                 toggleFootView(true);
                         } else {
@@ -148,7 +151,7 @@ public class SuperRefreshLayout extends RelativeLayout {
                     }
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                         if(lastVisiblePosition >= manager.getItemCount() - 1){// 滑动到最后
-                            Log.e(Tag, "滑动到底部了...");
+//                            Log.e(Tag, "滑动到底部了...");
                             if(isLoadMore)
                                 toggleFootView(true);
                         } else {
@@ -175,8 +178,8 @@ public class SuperRefreshLayout extends RelativeLayout {
         mFootView.setLayoutParams(lp);
 
 
-        Log.e(Tag, "mHeadViewHeight=" + mHeadView.getMeasuredHeight());
-        Log.e(Tag, "mFootViewHeight=" + mFootView.getMeasuredHeight());
+//        Log.e(Tag, "mHeadViewHeight=" + mHeadView.getMeasuredHeight());
+//        Log.e(Tag, "mFootViewHeight=" + mFootView.getMeasuredHeight());
 
 //        mHeadViewHeight = Util.dip2px(context, 48);
 
@@ -200,7 +203,7 @@ public class SuperRefreshLayout extends RelativeLayout {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(Tag, "dispatchTouchEvent === ACTION_DOWN");
+//                Log.e(Tag, "dispatchTouchEvent === ACTION_DOWN");
                 mLastY = y;
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -208,7 +211,7 @@ public class SuperRefreshLayout extends RelativeLayout {
                 float dy = y - mLastY;
                 if (!isInControl && mCurrrentState != STATE_REFRESHING
                         && ((!canPullDown() && dy > 0) || (getScrollY() != 0) || (isLoadMore && !canPullUp() && dy < 0))) {
-                    Log.e(Tag, "事件分发处理...");
+//                    Log.e(Tag, "事件分发处理...");
                     isInControl = true;
                     ev.setAction(MotionEvent.ACTION_CANCEL);
                     MotionEvent ev2 = MotionEvent.obtain(ev);
@@ -230,7 +233,7 @@ public class SuperRefreshLayout extends RelativeLayout {
                 mTouchY = ev.getY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e(Tag, "onInterceptTouchEvent === ACTION_MOVE");
+//                Log.e(Tag, "onInterceptTouchEvent === ACTION_MOVE");
                 float curY = ev.getY();
                 float dy = curY - mTouchY;
                 if (getScrollY() != 0) {
@@ -342,7 +345,7 @@ public class SuperRefreshLayout extends RelativeLayout {
             }
 
         }
-        Log.e(Tag, "dy=" + dy);
+//        Log.e(Tag, "dy=" + dy);
         mHeadView.setVisibility(View.VISIBLE);
         mHeadView.getLayoutParams().height = (int) (dy / 2);
         mHeadView.requestLayout();
@@ -360,7 +363,7 @@ public class SuperRefreshLayout extends RelativeLayout {
         mScroller.abortAnimation();
 
         if(isOpen) {
-            Log.e(Tag,"isOpen...");
+//            Log.e(Tag,"isOpen...");
             if(mCurrrentState == STATE_LOADMOREING) return;
             int dy = mFootViewHeight - scrollY;
             mScroller.startScroll(0, scrollY, 0, dy, 250);
@@ -368,7 +371,7 @@ public class SuperRefreshLayout extends RelativeLayout {
             refreshState();
         }
         else {
-            Log.e(Tag,"isClose...");
+//            Log.e(Tag,"isClose...");
             if(scrollY == 0) return;
             mScroller.startScroll(0, scrollY, 0, -scrollY, 250);
             mCurrrentState = STATE_PULL_REFRESH;
@@ -385,7 +388,7 @@ public class SuperRefreshLayout extends RelativeLayout {
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             postInvalidate();
         }else{
-            Log.e(Tag,"computeScroll="+getScrollY());
+//            Log.e(Tag,"computeScroll="+getScrollY());
         }
     }
 

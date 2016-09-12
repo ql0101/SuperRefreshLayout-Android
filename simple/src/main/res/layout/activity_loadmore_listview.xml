@@ -10,7 +10,7 @@
         android:id="@+id/id_superrefreshlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:show_type="defstr"
+        app:show_type="goo"
         app:pull_endless="true"
         app:overlay="false">
 

@@ -75,7 +75,7 @@ public class LoadMoreListActivity extends AppCompatActivity {
         });
 
 
-        mSuperRefreshLayout.autoRefresh();
+//        mSuperRefreshLayout.autoRefresh();
     }
 
     private void initDatas() {

@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".SimpleActivity"></activity>
         <activity android:name=".LoadMoreListActivity"></activity>
+        <activity android:name=".RecelviewActivity"></activity>
     </application>
 
 </manifest>

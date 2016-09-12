@@ -10,9 +10,8 @@
         android:id="@+id/id_superrefreshlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:show_type="material"
-        app:pull_endless="true"
-        app:overlay="true">
+        app:show_type="defstr"
+        app:pull_endless="true">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/id_recyclerview"

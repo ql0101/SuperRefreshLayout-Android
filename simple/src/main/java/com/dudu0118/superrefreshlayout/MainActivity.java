@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.bt_simple).setOnClickListener(this);
         findViewById(R.id.bt_lm_lv).setOnClickListener(this);
+        findViewById(R.id.bt_lm_rv).setOnClickListener(this);
 
 
     }
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_lm_lv:
                 startActivity(new Intent(this,LoadMoreListActivity.class));
+                break;
+            case R.id.bt_lm_rv:
+                startActivity(new Intent(this,RecelviewActivity.class));
                 break;
         }
     }
