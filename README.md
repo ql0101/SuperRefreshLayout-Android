@@ -103,7 +103,7 @@ SuperRefreshLayout.setIsOverLay(true);
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    <!-- 目前支持3种样式 defstr（文字） material（官方） goo（粘性） -->
+    <!-- 目前支持3种样式defstr文字-material官方-goo粘性 -->
     app:show_type="defstr">
 ```
 
