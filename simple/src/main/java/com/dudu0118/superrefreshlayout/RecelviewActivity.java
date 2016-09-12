@@ -28,7 +28,7 @@ public class RecelviewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_listview);
+        setContentView(R.layout.activity_recycler_listview2);
 
         initDatas();
         initView();

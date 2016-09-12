@@ -556,4 +556,21 @@ public class SuperRefreshLayout extends RelativeLayout {
     public void setLoadMore(boolean loadMore) {
         isLoadMore = loadMore;
     }
+
+    public boolean isOverlay() {
+        return isOverlay;
+    }
+
+    public void setOverlay(boolean overlay) {
+        isOverlay = overlay;
+    }
+
+    public boolean isPullEndless() {
+        return isPullEndless;
+    }
+
+    public void setPullEndless(boolean pullEndless) {
+        isPullEndless = pullEndless;
+    }
+
 }
