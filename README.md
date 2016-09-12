@@ -16,23 +16,25 @@
 ##快速使用
 ###1.在布局文件中添加SuperRefreshLayout
 
-	<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/id_superrefreshlayout"
+```xml
+<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/id_superrefreshlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:show_type="material"
+    app:overlay="true"
+    app:pull_endless="true">
+
+    <!-- 需要刷新的控件 -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:show_type="material"
-        app:overlay="true"
-        app:pull_endless="true">
+        android:fadingEdge="none"/>
 
-		<!-- 需要刷新的控件 -->
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/id_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fadingEdge="none"/>
-
-    </com.dudu0118.superrefreshlib.view.SuperRefreshLayout>
+</com.dudu0118.superrefreshlib.view.SuperRefreshLayout>
+```
   
 ###2.在代码中设置监听回调
 
