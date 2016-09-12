@@ -16,7 +16,6 @@
 ##快速使用
 ###1.在布局文件中添加SuperRefreshLayout
 
-  ```
 	<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/id_superrefreshlayout"
@@ -34,11 +33,10 @@
             android:fadingEdge="none"/>
 
     </com.dudu0118.superrefreshlib.view.SuperRefreshLayout>
-  ```
   
 ###2.在代码中设置监听回调
 
-  ```
+    ```java
 	SuperRefreshLayout.setRefreshListener(new SuperRefreshLayout.RefreshListener() {
             @Override
             public void onRefresh(final SuperRefreshLayout superRefreshLayout) {
@@ -55,7 +53,7 @@
                
             }
         });
-  ```
+    ```
   
 就需要上述的两步，就能实现下拉刷新与上拉加载 是不是很简单！
 
@@ -63,18 +61,19 @@
 ###1.下拉沉浸式模式
 在xml中配置：
 
-  ```
+    ```html
 	<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:overlay="true">
-  ```
+    ```
 
 在代码中配置：
-  ```
+
+    ```java
 	SuperRefreshLayout.setIsOverLay(true);
-	```
+    ```
 
 ###2.下拉无限拉模式
 在xml中配置：
@@ -89,7 +88,7 @@
 
 在代码中配置：
 
-  ```
+    ```
 	SuperRefreshLayout.setIsOverLay(true);
 	```
 
@@ -97,20 +96,20 @@
 
 在xml中配置：
 
-  ```
+    ```
 	<com.dudu0118.superrefreshlib.view.SuperRefreshLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 		<!-- 目前支持3种样式 defstr（文字） material（官方） goo（粘性） -->
         app:show_type="defstr">
-  ```
+    ```
 
 在代码中配置：
 
-```
+    ```
 	SuperRefreshLayout.setHeadView(new TextHeadView(context));
-```
+    ```
 
 ##高级进阶
 ###1.实现自定义下拉刷新头
@@ -119,7 +118,7 @@
 
 实现initView()与setPullState(int statePullRefresh)效果。前者是具体显示的刷新头部view后者是用来判断当前头部状态来分别显示不同的效果。
 
-```
+    ```java
 	public class GooHeadView extends DefaultHeadView {
 
 	    private GooView gooView;
@@ -150,7 +149,7 @@
 	
 	    }
 	}
-```
+    ```
 
 如果你需要知道当前下拉的百分比来实现更丰富的效果那么请实现updatePullOffset(float offset)方法。offset为当前下拉百分比，当使用无尽模式时百分比会大于1.0
 
