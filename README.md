@@ -9,9 +9,9 @@
 
 
 ## 效果图
-![SuperRefreshLayout1](http://img.blog.csdn.net/20160912143102488)
-![SuperRefreshLayout2](http://img.blog.csdn.net/20160912144237064)
-![SuperRefreshLayout3](http://img.blog.csdn.net/20160912144411193)
+![SuperRefreshLayout1](https://raw.githubusercontent.com/ql0101/SuperRefreshLayout-Android/master/gif/simple.gif)
+![SuperRefreshLayout2](https://raw.githubusercontent.com/ql0101/SuperRefreshLayout-Android/master/gif/gooview.gif)
+![SuperRefreshLayout3](https://raw.githubusercontent.com/ql0101/SuperRefreshLayout-Android/master/gif/hahahah.gif)
 
 ##快速使用
 ###1.在布局文件中添加SuperRefreshLayout
