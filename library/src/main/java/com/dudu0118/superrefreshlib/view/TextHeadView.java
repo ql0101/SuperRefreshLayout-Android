@@ -1,6 +1,7 @@
 package com.dudu0118.superrefreshlib.view;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,6 +80,7 @@ public class TextHeadView extends DefaultHeadView {
                 iv_progress.setVisibility(View.INVISIBLE);
                 iv_arr.clearAnimation();
                 iv_arr.startAnimation(animDown);
+                ((AnimationDrawable) iv_progress.getDrawable()).stop();
 
                 break;
             case SuperRefreshLayout.STATE_RELEASE_REFRESH:
@@ -93,6 +95,7 @@ public class TextHeadView extends DefaultHeadView {
                 iv_arr.clearAnimation();
                 iv_arr.setVisibility(View.GONE);
                 iv_progress.setVisibility(View.VISIBLE);
+                ((AnimationDrawable) iv_progress.getDrawable()).start();
                 mRefresh = true;
                 break;
         }

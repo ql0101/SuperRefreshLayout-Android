@@ -2,7 +2,9 @@ package com.dudu0118.superrefreshlib.holder;
 
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.dudu0118.superrefreshlib.R;
 
@@ -16,6 +18,7 @@ public class LoadMoreHolder extends BaseHolder<Integer> {
 
     private View mLoadingView;
     private int mCurrentSate;
+    private ImageView iv_progress;
 
     public LoadMoreHolder(Context context) {
         super(context);
@@ -24,8 +27,10 @@ public class LoadMoreHolder extends BaseHolder<Integer> {
     @Override
     protected View initView() {
         View view = View.inflate(context, R.layout.item_load_more, null);
+        iv_progress = (ImageView) view.findViewById(R.id.iv_progress);
 
         refreshUI(STATE_LOADING);
+        ((AnimationDrawable) iv_progress.getDrawable()).start();
 
         return view;
     }
@@ -44,6 +49,7 @@ public class LoadMoreHolder extends BaseHolder<Integer> {
 //                mLoadingView.setVisibility(View.GONE);
                 break;
             case STATE_LOADING:
+                ((AnimationDrawable) iv_progress.getDrawable()).start();
 //                mErrorView.setVisibility(View.GONE);
 //                mLoadingView.setVisibility(View.VISIBLE);
                 break;

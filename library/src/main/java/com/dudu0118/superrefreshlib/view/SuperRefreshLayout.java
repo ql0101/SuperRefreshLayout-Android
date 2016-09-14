@@ -20,6 +20,8 @@ import android.widget.Scroller;
 import android.widget.Toast;
 
 import com.dudu0118.superrefreshlib.R;
+import com.dudu0118.superrefreshlib.holder.BaseHolder;
+import com.dudu0118.superrefreshlib.holder.LoadMoreHolder;
 import com.dudu0118.superrefreshlib.utils.Util;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.ValueAnimator;
@@ -49,7 +51,7 @@ public class SuperRefreshLayout extends RelativeLayout {
     private View mChildView;
     private DefaultHeadView mHeadView;
     private int mHeadViewHeight;
-    private View mFootView;
+    private BaseHolder mFootView;
     private int mFootViewHeight;
     private float mTouchY;
     private float mLastY;
@@ -169,13 +171,13 @@ public class SuperRefreshLayout extends RelativeLayout {
             mHeadViewHeight += Util.dip2px(context, 10);
         }
 
-        mFootView = View.inflate(context, R.layout.item_load_more, null);
-        mFootView.measure(0, 0);
-        mFootViewHeight = mFootView.getMeasuredHeight();
+        mFootView = new LoadMoreHolder(context);
+        mFootView.getRootView().measure(0, 0);
+        mFootViewHeight = mFootView.getRootView().getMeasuredHeight();
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, mFootViewHeight);
         lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         lp.setMargins(0, -mFootViewHeight, 0, -mFootViewHeight);
-        mFootView.setLayoutParams(lp);
+        mFootView.getRootView().setLayoutParams(lp);
 
 
 //        Log.e(Tag, "mHeadViewHeight=" + mHeadView.getMeasuredHeight());
@@ -184,9 +186,9 @@ public class SuperRefreshLayout extends RelativeLayout {
 //        mHeadViewHeight = Util.dip2px(context, 48);
 
         mHeadView.setVisibility(View.GONE);
-        mFootView.setVisibility(View.VISIBLE);
+        mFootView.getRootView().setVisibility(View.VISIBLE);
         addView(mHeadView, LayoutParams.MATCH_PARENT, mHeadViewHeight);
-        addView(mFootView);
+        addView(mFootView.getRootView());
 
 
         if (mChildView == null) {
