@@ -296,7 +296,10 @@ public class SuperRefreshLayout extends RelativeLayout {
                     if (y == mFootViewHeight) {
                         toggleFootView(true);
                     } else {
-                        toggleFootView(false);
+                        if(mCurrrentState == STATE_LOADMOREING)
+                            toggleFootView(true);
+                        else
+                            toggleFootView(false);
                     }
                 }
                 break;
@@ -364,9 +367,9 @@ public class SuperRefreshLayout extends RelativeLayout {
 
         if(isOpen) {
 //            Log.e(Tag,"isOpen...");
-            if(mCurrrentState == STATE_LOADMOREING) return;
             int dy = mFootViewHeight - scrollY;
             mScroller.startScroll(0, scrollY, 0, dy, 250);
+            if(mCurrrentState == STATE_LOADMOREING) return;
             mCurrrentState = STATE_LOADMOREING;
             refreshState();
         }
